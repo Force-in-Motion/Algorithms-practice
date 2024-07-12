@@ -1,9 +1,16 @@
 
 def calculation_fibonacci_numbers(n) -> list:
+    """
+    Создает список чисел финабучи, если проверки пройдены
+    :param n: Пренимает целое число
+    :return: Возвращает список чисел финабучи
+    """
     if not isinstance(n, int):
         raise TypeError('Получен не верный тип данных, ожидалось целое число')
+
     if n < 0:
         raise ValueError('Передаваемое значение не может быть отрицательным')
+
     lst_fibonacci_nums = []
     fib_num_a = 0
     fib_num_b = 1
