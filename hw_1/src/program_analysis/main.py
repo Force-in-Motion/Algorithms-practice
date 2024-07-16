@@ -1,0 +1,74 @@
+
+
+path = r'D:\Python\School\Module-5\Algorithms\hw_1\src\program_analysis\data_sql'
+
+
+def read_data_file(path):
+    with open(path, 'r') as f:
+        data_file = f.read().split()
+    return data_file
+
+
+def build_matrix_data(data_file):
+    matrix_data = []
+
+    for i in data_file:
+        matrix_data.append(i.split(','))
+
+    return matrix_data
+
+
+def requests_count_visitors(min_value, max_value):
+    count_visitors = input('Введите количество посетителей >> ')
+
+    if count_visitors == '' or not count_visitors.isdigit():
+        raise TypeError('Получен не верный тип данных, ожидалось целое число')
+
+    if count_visitors < min_value or count_visitors > max_value:
+        raise ValueError(f'Переданные значения не могут быть меньше {min_value} и больше {max_value}')
+
+    return count_visitors
+
+
+def check_min_values(matrix_data):
+    min_value = '9999999999999'
+
+    for i in range(0, len(matrix_data), 1):
+        if matrix_data[i][1] < min_value:
+            min_value = matrix_data[i][1]
+
+    return min_value
+
+def check_max_value(matrix_data):
+    max_value = '0'
+
+    for i in range(0, len(matrix_data), 1):
+        if matrix_data[i][1] > max_value:
+            max_value = matrix_data[i][1]
+
+    return max_value
+
+def determines_popular_days(matrix_data, count_visitors):
+    lst_popular_days = []
+
+    for i in range(0, len(matrix_data), 1):
+        for j in range(0, len(matrix_data[i]), 1):
+            if matrix_data[i][j] >= count_visitors:
+                lst_popular_days.append(matrix_data[i])
+
+    return lst_popular_days
+
+
+def print_popular_days(popular_days):
+    print('Популярные дни указанного диапазона:', end='\n')
+    for i in range(0, len(popular_days), 1):
+        print(f'{popular_days[i][0]}, количество посетителей: {popular_days[i][1]} ')
+
+
+data_file = read_data_file(path)
+matrix_data = build_matrix_data(data_file)
+min_value = check_min_values(matrix_data)
+max_value = check_max_value(matrix_data)
+count_visitors = requests_count_visitors(min_value, max_value)
+popular_days = determines_popular_days(matrix_data, count_visitors)
+print_popular_days = print_popular_days(popular_days)
