@@ -5,7 +5,6 @@ def create_lst_int_from_input_data(data):
     :param data: Пренимает строку
     :return: Возвращает список целых чисел
     """
-    data.split()
     arr = [int(i) for i in data if i.isdigit()]
     return arr
 

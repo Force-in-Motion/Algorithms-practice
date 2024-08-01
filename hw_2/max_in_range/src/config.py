@@ -4,7 +4,9 @@ ft = ('Helvetica', 15, 'bold')
 ft_out_lbl = ('Helvetica', 18, 'bold')
 
 fgc = 'transparent'
-tt_lst = 'Введите целые числа через пробел:'
+ph_lst = 'Введите целые числа через пробел:'
+ph_start = 'Введите начало диапазона:'
+ph_end = 'Введите конец диапазона:'
 
 'config_result_label'
 tt_c_res = '#09BBC1',

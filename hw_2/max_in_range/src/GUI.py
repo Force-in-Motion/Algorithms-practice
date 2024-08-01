@@ -92,13 +92,13 @@ class Main_frame(ctk.CTkFrame):
         """
         Формирует в себе поля ввода данных
         """
-        self.input_data_lst = ctk.CTkEntry(self, width=400, height=40, font=ft, placeholder_text=tt_lst)
+        self.input_data_lst = ctk.CTkEntry(self, width=400, height=40, font=ft, placeholder_text=ph_lst)
         self.input_data_lst.place(relx=0.2, rely=0.33)
 
-        self.input_data_start = ctk.CTkEntry(self, width=200, height=40, font=ft)
+        self.input_data_start = ctk.CTkEntry(self, width=250, height=40, font=ft, placeholder_text=ph_start)
         self.input_data_start.place(relx=0.2, rely=0.44)
 
-        self.input_data_end = ctk.CTkEntry(self, width=200, height=40, font=ft)
+        self.input_data_end = ctk.CTkEntry(self, width=250, height=40, font=ft, placeholder_text=ph_end)
         self.input_data_end.place(relx=0.2, rely=0.55)
 
     def __create_result_button(self):
@@ -112,7 +112,7 @@ class Main_frame(ctk.CTkFrame):
 
     def button_click(self):
         """
-        Основной метод обработки клика по кнопке, формирует данные для вывода результата пользователю
+        Основной метод обработки клика по кнопке, формирует данные для вывода результата пользователю, а так же некоторые проверки данных
         :return:
         """
         data = self.input_data_lst.get()
@@ -147,7 +147,7 @@ class App(ctk.CTk):
     def __config_window(self):
         """
         Формирует параметры главного окна
-        :return:
+        :return: None
         """
         self.geometry('700x500+500+100')
         self.title('max_in_range')
@@ -155,8 +155,8 @@ class App(ctk.CTk):
 
     def __config_wigets(self):
         """
-        Добавляет главный онтейнер на основное окно
-        :return:
+        Добавляет главный контейнер на основное окно
+        :return: None
         """
         self.main_frame = Main_frame(self, width=700, height=500, fg_color=fgc)
         self.main_frame.place(relx=0, rely=0)
