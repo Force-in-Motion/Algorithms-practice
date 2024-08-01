@@ -1,4 +1,3 @@
-# data = input('>>')
 
 def create_lst_numbers(data: str) -> list[int] or bool:
     """
