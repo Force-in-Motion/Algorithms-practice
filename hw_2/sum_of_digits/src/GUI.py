@@ -14,7 +14,7 @@ class Error_message:
 
     @staticmethod
     def err_type():
-        showerror(title='Ошибка', message='Получен не верный тип данных, ожидались целые числа')
+        showerror(title='Ошибка', message='Получен не верный тип данных, ожидались натеральные положительные числа')
 
 
 class Main_frame(ctk.CTkFrame):
