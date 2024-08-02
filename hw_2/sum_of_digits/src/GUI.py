@@ -100,8 +100,6 @@ class App(ctk.CTk):
         self.__main_frame.place(relx=0, rely=0)
 
 
-
-
 class Program:
     @staticmethod
     def main():
