@@ -18,7 +18,7 @@ def create_arr_numbers(data: str) -> list[float] or bool:
     return lst
 
 
-def choise_sort(arr: list) -> type(list or int or int):
+def choise_sort(arr: list, condition=lambda x, y: x < y, key=lambda x: int(x)) -> type(any):
     """
     Пренимает массив строк, сортирует согласно заданному признаку сортировки
     :param arr: Пренимает массив строк
@@ -35,7 +35,7 @@ def choise_sort(arr: list) -> type(list or int or int):
         index_min = i
 
         for j in range(i, len(arr), 1):
-            if arr[index_min] > arr[j]:
+            if condition(key(arr[index_min]), key(arr[j])):
                 index_min = j
                 count_comparisons += 1
 

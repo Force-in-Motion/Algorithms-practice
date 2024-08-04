@@ -1,7 +1,7 @@
 import customtkinter as ctk
 from tkinter.messagebox import showerror
-from choise_sort.main import *
-from config import *
+from recursive_sum.main import *
+from recursive_sum.config import *
 
 
 class ErrorMessage:
@@ -75,10 +75,9 @@ class MainFrame(ctk.CTkFrame):
 
         assert len(lst_nums) > 1, ErrorMessage.err_length()
 
-        result_arr = choise_sort(lst_nums)
-        print(result_arr)
+        sum_elems = recursive_sum(lst_nums)
 
-        self.__result_output_field.configure(text=f'Массив: {result_arr[0]}\nКол-во сравнений: {result_arr[1]}\nКол-во обменов: {result_arr[2]}')
+        self.__result_output_field.configure(text=f'Сумма элементов массива: {sum_elems}')
 
 
 class App(ctk.CTk):
